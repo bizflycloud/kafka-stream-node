@@ -1,0 +1,12 @@
+#*.log
+#*.tmp
+#*.swp
+#*.o
+#*.a
+#.idea/
+#.vscode/
+#.git/
+#vendor
+.gitignore
+
+
