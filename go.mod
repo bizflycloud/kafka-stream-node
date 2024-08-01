@@ -5,6 +5,7 @@ go 1.21
 require (
 	github.com/IBM/sarama v1.43.2
 	github.com/TheZeroSlave/zapsentry v1.23.0
+	github.com/getsentry/sentry-go v0.27.0
 	github.com/joho/godotenv v1.5.1
 	github.com/xdg-go/scram v1.1.2
 	go.elastic.co/apm/module/apmzap/v2 v2.6.0
@@ -19,7 +20,6 @@ require (
 	github.com/eapache/queue v1.1.0 // indirect
 	github.com/elastic/go-sysinfo v1.7.1 // indirect
 	github.com/elastic/go-windows v1.0.0 // indirect
-	github.com/getsentry/sentry-go v0.27.0 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/hashicorp/errwrap v1.0.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect

@@ -34,6 +34,6 @@ RUN echo $TZ > /etc/timezone && \
 COPY --from=server_builder /bin/kafka-stream-node /bin/kafka-stream-node
 
 # copy env
-COPY --from=server_builder $GOPATH/kafka-stream-node/.env /go/.env
+#COPY --from=server_builder $GOPATH/kafka-stream-node/.env /go/.env
 
 CMD ["/bin/kafka-stream-node"]

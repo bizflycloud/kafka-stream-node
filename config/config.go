@@ -54,9 +54,6 @@ func InitConfig() *AppConfig {
 			if err != nil {
 				log.Println("Error: ", err)
 			}
-			if err != nil {
-				log.Println("Error: ", err)
-			}
 			KafkaAuthPublisher, _ := strconv.ParseBool(getEnv("KAFKA_AUTH_PUBLISHER", "false").(string))
 			KafkaAuthSubscriber, _ := strconv.ParseBool(getEnv("KAFKA_AUTH_PUBLISHER_SUBSCRIBER", "false").(string))
 			Instance = &AppConfig{
