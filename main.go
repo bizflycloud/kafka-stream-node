@@ -68,12 +68,13 @@ func main() {
 	var err error
 	handle.Producer, err = kafka_target.InitKafkaProducer()
 	if err != nil {
-		return
-	}
-	if err != nil {
 		logger.Error("connect kafka subscriber: ", err.Error())
 		return
 	}
+
+	// run goroutine push message
+	go handle.BatchAndPushMessages(handle.MessageChan)
+
 	conf := config.InitConfig()
 	brokers := []string{conf.KafkaBrokerPublisher}
 
@@ -149,6 +150,7 @@ func main() {
 			toggleConsumptionFlow(consumerGroup, &consumptionIsPaused)
 		}
 	}
+	close(handle.MessageChan)
 	cancel()
 	wg.Wait()
 

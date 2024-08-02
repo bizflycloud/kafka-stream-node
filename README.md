@@ -57,6 +57,12 @@ KAFKA_PASSWORD_SUBSCRIBER=
 
 # Kafka scram mechanism type for Subscriber (used if KAFKA_AUTH_SUBSCRIBER is true, accepts values "SHA256" or "SHA512")
 KAFKA_MECHANISM_SUBSCRIBER="SHA256"
+
+# Batch size message push to subscriber 
+BATCH_SIZE_MESSAGE_PUSH=500
+
+# BathTime is time over and the channel does not have enough messages, the messages will also be pushed.
+BATCH_TIME_MESSAGE_PUSH=5
 ```
 ### 3. Run project 
 * docker-compose

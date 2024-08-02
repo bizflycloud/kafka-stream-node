@@ -25,6 +25,9 @@ type AppConfig struct {
 	KafkaTopicSubscriber     string `mapstructure:"Kafka_topic_subscriber"`
 	KafkaAuthSubscriber      bool   `mapstructure:"Kafka_auth_subscriber"`
 
+	BatchSizeMessagePush int   `mapstructure:"Batch_size_message_push"`
+	BatchTimeMessagePush int64 `mapstructure:"Batch_time_message_push"`
+
 	SentryDSN string `mapstructure:"sentry_dsn"`
 }
 
@@ -56,6 +59,8 @@ func InitConfig() *AppConfig {
 			}
 			KafkaAuthPublisher, _ := strconv.ParseBool(getEnv("KAFKA_AUTH_PUBLISHER", "false").(string))
 			KafkaAuthSubscriber, _ := strconv.ParseBool(getEnv("KAFKA_AUTH_PUBLISHER_SUBSCRIBER", "false").(string))
+			BatchSizeMessagePush, _ := strconv.ParseInt(getEnv("BATCH_SIZE_MESSAGE_PUSH", "500").(string), 10, 64)
+			BatchTimeMessagePush, _ := strconv.ParseInt(getEnv("BATCH_TIME_MESSAGE_PUSH", "5").(string), 10, 64)
 			Instance = &AppConfig{
 				Env:                     getEnv("ENV", "").(string),
 				KafkaBrokerPublisher:    getEnv("KAFKA_BROKER_PUBLISHER", "").(string),
@@ -71,6 +76,9 @@ func InitConfig() *AppConfig {
 				KafkaTopicSubscriber:     getEnv("KAFKA_TOPIC_SUBSCRIBER", "").(string),
 				KafkaMechanismSubscriber: getEnv("KAFKA_MECHANISM_SUBSCRIBER", "").(string),
 				KafkaAuthSubscriber:      KafkaAuthSubscriber,
+
+				BatchSizeMessagePush: int(BatchSizeMessagePush),
+				BatchTimeMessagePush: BatchTimeMessagePush,
 
 				SentryDSN: getEnv("SENTRY_DSN", "").(string),
 			}
