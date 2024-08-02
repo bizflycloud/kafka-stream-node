@@ -20,7 +20,7 @@ func HandleData(valueMessage []byte) {
 
 func BatchAndPushMessages(messageChan chan *sarama.ProducerMessage) {
 	var messageBuffer []*sarama.ProducerMessage
-	// convert batch time to second to nanosecond
+	// convert batch time from second to nanosecond
 	batchTime := config.Instance.BatchTimeMessagePush * 1000000000
 	ticker := time.NewTicker(time.Duration(batchTime))
 	defer ticker.Stop()
