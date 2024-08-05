@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  api:
+    restart: always
+    container_name: kafka-stream-node
+    build: .
+    networks:
+      - kafka-network
+
+networks:
+  kafka-network:
+    driver: bridge
