@@ -21,6 +21,8 @@ cd kafka-stream-node
 ENV=develop
 # Publisher
 # Kafka broker address for Publisher (Kafka broker cluster to push data)
+# When there is only one broker: KAFKA_BROKER_PUBLISHER='10.3.xx.xx:9092'
+# When there are multiple brokers: KAFKA_BROKER_PUBLISHER='10.3.xx.xx:9092,10.3.xx.xx:9092,10.3.xx.xx:9092'
 KAFKA_BROKER_PUBLISHER=
 
 # Authentication configuration for Publisher (true if authentication is required, false if not)
@@ -41,10 +43,12 @@ KAFKA_MECHANISM_PUBLISHER=
 
 # Subscriber
 # Kafka broker address for Subscriber (Kafka broker cluster to read data)
+# When there is only one broker: KAFKA_BROKER_SUBSCRIBER='10.3.xx.xx:9092'
+# When there are multiple brokers: KAFKA_BROKER_SUBSCRIBER='10.3.xx.xx:9092,10.3.xx.xx:9092,10.3.xx.xx:9092'
 KAFKA_BROKER_SUBSCRIBER=
 
 # Authentication configuration for Subscriber (true if authentication is required, false if not)
-KAFKA_AUTH_PUBLISHER_SUBSCRIBER=false
+KAFKA_AUTH_SUBSCRIBER=false
 
 # Kafka topic name for Subscriber to send data to
 KAFKA_TOPIC_SUBSCRIBER=
@@ -56,7 +60,7 @@ KAFKA_USER_SUBSCRIBER=
 KAFKA_PASSWORD_SUBSCRIBER=
 
 # Kafka scram mechanism type for Subscriber (used if KAFKA_AUTH_SUBSCRIBER is true, accepts values "SHA256" or "SHA512")
-KAFKA_MECHANISM_SUBSCRIBER="SHA256"
+KAFKA_MECHANISM_SUBSCRIBER=
 
 # Batch size message push to subscriber 
 BATCH_SIZE_MESSAGE_PUSH=500

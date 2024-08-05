@@ -2,8 +2,8 @@ package logger
 
 import (
 	"fmt"
+	"kafka-stream-node/config"
 	"os"
-	"service_bus_consumer/config"
 
 	"github.com/TheZeroSlave/zapsentry"
 	"go.elastic.co/apm/module/apmzap/v2"

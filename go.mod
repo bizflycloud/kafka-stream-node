@@ -1,4 +1,4 @@
-module service_bus_consumer
+module kafka-stream-node
 
 go 1.21
 

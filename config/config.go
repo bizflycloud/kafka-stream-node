@@ -58,7 +58,7 @@ func InitConfig() *AppConfig {
 				log.Println("Error: ", err)
 			}
 			KafkaAuthPublisher, _ := strconv.ParseBool(getEnv("KAFKA_AUTH_PUBLISHER", "false").(string))
-			KafkaAuthSubscriber, _ := strconv.ParseBool(getEnv("KAFKA_AUTH_PUBLISHER_SUBSCRIBER", "false").(string))
+			KafkaAuthSubscriber, _ := strconv.ParseBool(getEnv("KAFKA_AUTH_SUBSCRIBER", "false").(string))
 			BatchSizeMessagePush, _ := strconv.ParseInt(getEnv("BATCH_SIZE_MESSAGE_PUSH", "500").(string), 10, 64)
 			BatchTimeMessagePush, _ := strconv.ParseInt(getEnv("BATCH_TIME_MESSAGE_PUSH", "5").(string), 10, 64)
 			Instance = &AppConfig{
